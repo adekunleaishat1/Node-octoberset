@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/todo">
+        <input name="title" type="text">
+        <input name="content" type="text">
+        <button type="submit">AddTodo</button>
+        
+    </form>
+    <% todolist.forEach((todo, index) => { %>
+        <p>Title: <%= todo.title %></p>
+        <p>Content: <%= todo.content %></p>
+        <form method="post" action="/todo/delete/<%= index %>">
+            <!-- <input hidden name="index" type="text" value="<%= index %>"> -->
+          <button type="submit">DELETE</button>
+        </form>
+    <% }) %>
+    
+</body>
+</html>
