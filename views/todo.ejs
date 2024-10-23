@@ -19,6 +19,9 @@
             <!-- <input hidden name="index" type="text" value="<%= index %>"> -->
           <button type="submit">DELETE</button>
         </form>
+        <form action="/todo/edit/<%= index %>" method="get">
+            <button type="submit">Edit</button>
+        </form>
     <% }) %>
     
 </body>
