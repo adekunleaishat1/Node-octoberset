@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="/todo">
+    <form method="post" action="/todo/addtodo">
         <input name="title" type="text">
         <input name="content" type="text">
         <button type="submit">AddTodo</button>
@@ -15,11 +15,11 @@
     <% todolist.forEach((todo, index) => { %>
         <p>Title: <%= todo.title %></p>
         <p>Content: <%= todo.content %></p>
-        <form method="post" action="/todo/delete/<%= index %>">
+        <form method="post" action="/todo/delete/<%= todo._id %>">
             <!-- <input hidden name="index" type="text" value="<%= index %>"> -->
           <button type="submit">DELETE</button>
         </form>
-        <form action="/todo/edit/<%= index %>" method="get">
+        <form action="/todo/edit/<%= todo._id %>" method="get">
             <button type="submit">Edit</button>
         </form>
     <% }) %>

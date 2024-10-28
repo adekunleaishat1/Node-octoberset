@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const usermodel = require("./Models/usermodel")
 const dbconnection = require("./Db.config/dbconect")
 const userrouter = require("./Routes/userRoute")
+const todorouter = require("./Routes/todoRoute")
 require("dotenv").config()
 
 
@@ -12,6 +13,8 @@ require("dotenv").config()
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended:true}))
 app.use("/", userrouter)
+app.use("/todo", todorouter)
+
 
 // CRUD 
 
@@ -28,9 +31,6 @@ let todolist =[]
 // })
 
 
-app.get("/todo", (req, res)=>{
-   res.render("todo", {todolist})
-});
 
 // app.post("/register", async(req,res)=>{
 //   try {
